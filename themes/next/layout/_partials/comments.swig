@@ -33,6 +33,9 @@
     <div class="comments" id="comments">
       <div id="SOHUCS"></div>
     </div>
+    
+   {% elseif theme.gitalk.enable %}
+     <div id="gitalk-container"></div>
 
   {% elif theme.gitment.enable %}
     <div class="comments" id="comments">

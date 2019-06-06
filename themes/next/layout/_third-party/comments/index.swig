@@ -17,3 +17,5 @@
     {% include 'disqusjs.swig' %}
   {% endif %}
 {% endif %}
+
+{% include 'gitalk.swig' %}
