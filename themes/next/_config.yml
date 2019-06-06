@@ -670,11 +670,11 @@ gitment:
 # Demo: https://gitalk.github.io
 gitalk:
   enable: true
-  github_id:  Yuck1125
+  githubID:  Yuck1125
   repo:  Yuck1125.github.io
-  client_id:  ae179981eea0ed1ba9c3
-  client_secret:  b31b396d90ccafc0b8d979ed725e3705c73de082
-  admin_user:  Yuck1125
+  ClientID:  ae179981eea0ed1ba9c3
+  ClientSecret:  b31b396d90ccafc0b8d979ed725e3705c73de082
+  adminUser:  Yuck1125
   distraction_free_mode: true # Facebook-like distraction free mode
   # Gitalk's display language depends on user's browser or system environment
   # If you want everyone visiting your site to see a uniform language, you can set a force language value
