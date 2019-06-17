@@ -2,7 +2,7 @@
 title: 'A java.lang.NoClassDefFoundError: ch/qos/logback/classic/spi/ThrowableProxy'
 date: 2019-06-13 12:19:17
 tags: "Exception"
-categories: "Summary"
+categories: "技术"
 ---
 ### Describtion
 &emsp;&emsp;今天打完jar包，上传服务器时，执行脚本时报错。
