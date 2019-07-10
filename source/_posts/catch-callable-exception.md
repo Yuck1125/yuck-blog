@@ -1,5 +1,5 @@
 ---
-title: Callable异常处理分析
+title: 线程池中Callable异常处理分析
 date: 2019-07-10 11:28:24
 tags: ["java","ThreadPoolExecutor"]
 categories: "技术"
