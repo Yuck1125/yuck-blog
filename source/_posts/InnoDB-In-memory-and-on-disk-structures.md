@@ -75,12 +75,13 @@ LRU算法主要的操作如下：
 ##### 2.1.4 Undo Tablespaces
 **Undo Tablespaces**保存的是undo log ，用于回滚事务。  
 该表空间有rollback segments,**rollback segments**是用于存 **undo log segments**, 而**undo log segments**存的就是undo logs。
-mysql启动的时候，默认初始两个undo tablespace。因为sql执行前必须要有rollback segments。而两个undo tablespace才支持**automated truncation of undo**。
+mysql启动的时候，默认初始两个undo tablespace(undo_001,undo_002)。因为sql执行前必须要有rollback segments。而两个undo tablespace才支持**automated truncation of undo**。
 >[truncating  undo tablespaces](https://dev.mysql.com/doc/refman/8.0/en/innodb-undo-tablespaces.html#truncate-undo-tablespace)
 ##### 2.1.5  Temporary Tablespaces
 InnoDB把 **Temporary Tablespaces**分为两种，**session temporary tablespaces** 和**global temporary tablespace**。
 **session temporary tablespaces**存储的是用户创建的临时表和内部的临时表，一个session最多有两个表空间（用户临时表和内部临时表）。  
-**global temporary tablespace**储存用户临时表的回滚段（rollback segments ）。
+**global temporary tablespace**储存用户临时表的回滚段（rollback segments ）。  
+临时表的位置在`BASEDIR/data/#innodb_temp`下，文件名为temp_*.ibt。
 ####  2.2 Doublewrite Buffer 
 **Doublewrite Buffer**位于The System Tablespace。在BP的页数据刷到磁盘真正的位置前，会先将数据存在doublewrite buffer。 这步操作是直接将数据作为顺序块，调用OS的fsync()方法写入到doublewrite buffer。  
 虽然数据写了两次，但是性能还是比两次IO低的。
@@ -88,7 +89,9 @@ InnoDB把 **Temporary Tablespaces**分为两种，**session temporary tablespace
 还可以解决页断裂的问题
 >https://www.cnblogs.com/cchust/p/3961260.html
 #### 2.3 Redo log 
-redo log记录的DML操作的日志，可以用来宕机后的数据前滚。（在log buffer的redo log日志会在宕机中丢失）
+redo log记录的DML操作的日志，可以用来宕机后的数据前滚。（在log buffer的redo logo日志会在宕机中丢失）
+  
+ 默认的文件名为ib_logfile0 和ib_logfile1。
 #### 2.4 undo log
 **undo log**记录数据更改前的快照（感觉就是备份），在数据需要回滚就可以根据undo log恢复。  
 那些undo log 记录关于在global temporary tablespace 的用户临时表的回滚信息，不会在回滚中恢复。
