@@ -1,5 +1,5 @@
 ---
-title: 记一次nginx500错误
+title: 记MultipartException一次导致nginx500错误
 date: 2019-08-04 21:14:50
 tags: ["nginx","zull","Exception"]
 categories: "技术"
